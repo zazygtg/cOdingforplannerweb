@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Digital Planner - Monthly View</title>
+<style>
+  /* Reset and base */
+  body {
+    font-family: "Windsor", Georgia, "Times New Roman", serif;
+    background: #f7f7f7;
+    margin: 2rem;
+    color: #222222;
+  }
+
+  .calendar-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #d0d0d0;
+    padding: 1rem 1.5rem 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #222;
+  }
+
+  .month-header h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .nav-arrow {
+    cursor: pointer;
+    font-size: 1.5rem;
+    user-select: none;
+    padding: 0 0.5rem;
+    color: #222;
+    transition: color 0.3s ease;
+  }
+
+  .nav-arrow:hover {
+    color: #a3cbe8; /* pastel blue */
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+  }
+
+  .day-name {
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5rem 0;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #bbb;
+  }
+
+  .day-cell {
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    min-height: 80px;
+    padding: 6px 8px;
+    cursor: pointer;
+    color: #222;
+    position: relative;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .day-cell:hover {
+    background-color: #a3cbe8; /* pastel blue */
+    box-shadow: 0 4px 10px rgba(163, 203, 232, 0.4);
+  }
+
+  .inactive {
+    background: #e0e0e0;
+    color: #888;
+    cursor: default;
+  }
+
+  /* Block colors - subtle pastel backgrounds */
+  .block1 {
+    background-color: #c8bfe7cc; /* lavender pastel with transparency */
+  }
+
+  .block2 {
+    background-color: #a8d5bac7; /* mint green pastel */
+  }
+
+  .block3 {
+    background-color: #f7c6b3cc; /* soft peach pastel */
+  }
+
+  .break {
+    background-color: #d9d9d9cc; /* light grey pastel */
+    color: #555;
+    font-style: italic;
+  }
+
+  .day-number {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  /* Small label inside days for block/break */
+  .label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 12px;
+    background: rgba(255 255 255 / 0.8);
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    color: #222;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="calendar-container">
+  <div class="month-header">
+    <span class="nav-arrow">&#8592;</span>
+    <h2>October 2025</h2>
+    <span class="nav-arrow">&#8594;</span>
+  </div>
+  <div class="calendar-grid">
+    <!-- Day names -->
+    <div class="day-name">Sun</div>
+    <div class="day-name">Mon</div>
+    <div class="day-name">Tue</div>
+    <div class="day-name">Wed</div>
+    <div class="day-name">Thu</div>
+    <div class="day-name">Fri</div>
+    <div class="day-name">Sat</div>
+
+    <!-- Previous month's trailing days (inactive) -->
+    <div class="day-cell inactive">29</div>
+    <div class="day-cell inactive">30</div>
+    <div class="day-cell inactive">31</div>
+
+    <!-- October days -->
+    <div class="day-cell block1"><div class="day-number">1</div></div>
+    <div class="day-cell block1"><div class="day-number">2</div></div>
+    <div class="day-cell block1"><div class="day-number">3</div></div>
+    <div class="day-cell block1"><div class="day-number">4</div></div>
+    <div class="day-cell block1"><div class="day-number">5</div></div>
+    <div class="day-cell block1"><div class="day-number">6</div></div>
+    <div class="day-cell block1"><div class="day-number">7</div></div>
+
+    <div class="day-cell block1"><div class="day-number">8</div></div>
+    <div class="day-cell block1"><div class="day-number">9</div></div>
+    <div class="day-cell block1"><div class="day-number">10</div></div>
+    <div class="day-cell block1"><div class="day-number">11</div></div>
+    <div class="day-cell block1"><div class="day-number">12</div></div>
+    <div class="day-cell block1"><div class="day-number">13</div></div>
+    <div class="day-cell block1"><div class="day-number">14</div></div>
+
+    <div class="day-cell block1"><div class="day-number">15</div></div>
+    <div class="day-cell block1"><div class="day-number">16</div></div>
+    <div class="day-cell block1"><div class="day-number">17</div></div>
+    <div class="day-cell block1"><div class="day-number">18</div></div>
+    <div class="day-cell block1"><div class="day-number">19</div></div>
+    <div class="day-cell block1"><div class="day-number">20</div></div>
+    <div class="day-cell block1"><div class="day-number">21</div></div>
+
+    <div class="day-cell block1"><div class="day-number">22</div></div>
+    <div class="day-cell block1"><div class="day-number">23</div></div>
+    <div class="day-cell block1"><div class="day-number">24</div></div>
+    <div class="day-cell block1"><div class="day-number">25</div></div>
+    <div class="day-cell block1"><div class="day-number">26</div></div>
+    <div class="day-cell block1"><div class="day-number">27</div></div>
+    <div class="day-cell block1"><div class="day-number">28</div></div>
+
+    <div class="day-cell block1"><div class="day-number">29</div></div>
+    <div class="day-cell block1"><div class="day-number">30</div></div>
+    <div class="day-cell block1"><div class="day-number">31</div></div>
+
+    <!-- Next month's leading days (inactive) -->
+    <div class="day-cell inactive">1</div>
+    <div class="day-cell inactive">2</div>
+    <div class="day-cell inactive">3</div>
+    <div class="day-cell inactive">4</div>
+  </div>
+</div>
+
+</body>
+</html>
